@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{% assign page.title = page.name %}
+
+<div class="columns is-multiline">
+    <div class="column is-3">
+        {% if page.avatar %}
+        <p class="image is-square">
+            <img src="{{ page.avatar | prepend: site.baseurl }}" alt="{{ page.name }}" />
+        </p>
+        {% else %}
+        <div class="has-text-centered">
+            <i class="fas fa-user fa-4x"></i>
+        </div>
+        {% endif %}
+    </div>
+    <div class="column">
+        <p class="title is-4">{{ page.name }}</p>
+        <p class="subtitle is-4 is-gapless">{{ page.position }}</p>
+
+        {% if page.website %}
+        <p class="subtitle is-6"><a href="{{ page.website }}" title="Author Website">{{ page.website }}</a></p>
+        {% endif %}
+
+        {% include social-buttons.html %}
+
+        <div class="content">
+            {{ content }}
+        </div>
+
+
